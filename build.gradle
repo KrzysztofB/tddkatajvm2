@@ -1,0 +1,48 @@
+buildscript {
+    // use specific Kotlin version
+    ext.kotlin_version = '1.3.71'
+    ext.spek_version = '2.0.9'
+    ext.junit_version = '5.6.1'
+}
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.71'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // some version of Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // include JUnit 5 assertions + assertJ
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testImplementation 'org.assertj:assertj-core:3.15.0'
+
+    // include Spek 2 library
+    testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spek_version"
+
+    // include JUnit 5 test engine
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+    // include Spek 2 JUnit test engine
+    testRuntimeOnly "org.spekframework.spek2:spek-runner-junit5:$spek_version"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+// setup the test task
+test {
+    useJUnitPlatform()
+}
