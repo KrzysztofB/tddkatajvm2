@@ -4,6 +4,9 @@
 #ignore mac files
 .DS_Store
 
+#ignore java files
+*.class
+
 # Ignore Gradle GUI config
 gradle-app.setting
 
