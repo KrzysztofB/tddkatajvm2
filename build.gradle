@@ -31,8 +31,13 @@ dependencies {
 
     // include JUnit 5 test engine
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+    testCompile("org.junit.jupiter:junit-jupiter-params:$junit_version")
+
     // include Spek 2 JUnit test engine
     testRuntimeOnly "org.spekframework.spek2:spek-runner-junit5:$spek_version"
+    
+    testRuntimeOnly "org.junit.platform:junit-platform-commons:1.7.0"
+
 }
 
 compileKotlin {
